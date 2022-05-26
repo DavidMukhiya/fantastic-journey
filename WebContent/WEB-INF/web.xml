@@ -18,4 +18,13 @@
  		<servlet-name>xyz</servlet-name>
  		<url-pattern>/sub</url-pattern>
  	</servlet-mapping>
+ 	
+ 	<servlet>
+ 		<servlet-name>square</servlet-name>
+ 		<servlet-class>com.david.SqrServlet</servlet-class>
+ 	</servlet>
+ 	<servlet-mapping>
+ 		<servlet-name>square</servlet-name>
+ 		<url-pattern>/sqr</url-pattern>
+ 	</servlet-mapping>
 </web-app>
