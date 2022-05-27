@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class SubServlet extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
@@ -16,10 +17,14 @@ public class SubServlet extends HttpServlet {
 		
 		int sub = i - j;
 		
-		req.setAttribute("k", sub);
+//		req.setAttribute("k", sub);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("sqr");
-		rd.forward(req, res);
+//		RequestDispatcher rd = req.getRequestDispatcher("sqr");
+//		rd.forward(req, res);
+		HttpSession session = req.getSession();
+		session.setAttribute("k", sub);
+		
+		res.sendRedirect("sqr");
 		
 		PrintWriter writer = res.getWriter();
 		writer.println(sub);

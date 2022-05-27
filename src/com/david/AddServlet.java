@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class AddServlet extends HttpServlet {
 	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
@@ -24,8 +25,12 @@ public class AddServlet extends HttpServlet {
 //		RequestDispatcher rd = req.getRequestDispatcher("sqr");
 //		rd.forward(req, res);
 		
-		res.sendRedirect("sqr?k="+sum);
+		HttpSession session = req.getSession();
+		session.setAttribute("k", sum);
+		
+//		res.sendRedirect("sqr?k="+sum);
 	
+		res.sendRedirect("sqr");
 		
 	}
 }
