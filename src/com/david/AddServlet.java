@@ -14,15 +14,18 @@ public class AddServlet extends HttpServlet {
 		int i = Integer.parseInt(req.getParameter("num1"));
 		int j = Integer.parseInt(req.getParameter("num2"));
 		int sum = i+j;
-		System.out.println(sum);
-		
-		req.setAttribute("k", sum);
+		//System.out.println(sum);
 //		
-//		PrintWriter out = res.getWriter();
-//		out.println("result is "+sum);
+//		req.setAttribute("k", sum);
+//	
+////		PrintWriter out = res.getWriter();
+////		out.println("result is "+sum);
+//		
+//		RequestDispatcher rd = req.getRequestDispatcher("sqr");
+//		rd.forward(req, res);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("sqr");
-		rd.forward(req, res);
+		res.sendRedirect("sqr?k="+sum);
+	
 		
 	}
 }

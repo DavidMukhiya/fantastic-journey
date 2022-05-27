@@ -12,7 +12,7 @@ public class SqrServlet extends HttpServlet {
 		PrintWriter out = res.getWriter();
 		// out.println("Hello From Square");
 
-		int k = (int) req.getAttribute("k");
+		int k = Integer.parseInt(req.getParameter("k"));
 
 		k = k * k;
 		//String home = "http://localhost:8085/DemoApp";
